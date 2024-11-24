@@ -138,6 +138,7 @@ in **`package.json`** file
 |-------------|----------------------------------------|-------------|
 | POST        | **`/api/orders/create-order`**                    | create a order/ placed order |
 | GET         | **`/api/orders`** | get all orders |
+| DELETE         | **`/api/orders/:orderID`** | delete the product by order Id |
 | GET         | **`/api/products/revenue`**          | calculation the orders revenue |
 
 ---
