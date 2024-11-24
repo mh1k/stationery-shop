@@ -12,9 +12,9 @@ const getAllProductFromDB = async (querySearch: string) => {
   const query = querySearch
     ? {
         $or: [
-          { name: { $regex: querySearch, $options: 'i' } },
-          { brand: { $regex: querySearch, $options: 'i' } },
-          { category: { $regex: querySearch, $options: 'i' } },
+          { name: querySearch },
+          { brand: querySearch },
+          { category: querySearch },
         ],
       }
     : {};

@@ -72,8 +72,46 @@ const getAllOrderRevenue = async (req: Request, res: Response) => {
   }
 };
 
+// delete the order by unique id through calling order service
+const deleteOrder = async (req: Request, res: Response) => {
+  try {
+    const id = req?.params?.orderID;
+    const result = await OrderService.deleteOrderIntoDB(id);
+    if (!result) {
+      res.status(404).json({
+        success: false,
+        message: 'Order not found',
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        message: 'Order deleted successfully',
+        data: {},
+      });
+    }
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error?.name : 'Something went wrong';
+    const stackError = error instanceof Error ? error?.stack : undefined;
+    if (errorMessage === 'CastError') {
+      res.status(404).json({
+        success: false,
+        message: 'Order not found',
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        message: errorMessage,
+        error: error,
+        stack: stackError,
+      });
+    }
+  }
+};
+
 export const OrderController = {
   createOrder,
   getAllOrder,
   getAllOrderRevenue,
+  deleteOrder,
 };

@@ -34,9 +34,18 @@ const getAllOrderRevenueFromDB = async () => {
   return result;
 };
 
+// this function delete the order to database by _id
+const deleteOrderIntoDB = async (id: string) => {
+    const result = await OrderModel.findByIdAndDelete(id, {
+      new: true,
+    });
+    return result;
+  };
+
 // export the Orderservice function to use in controller
 export const OrderService = {
   createOrderIntoDB,
   getAllOrderFromDB,
   getAllOrderRevenueFromDB,
+  deleteOrderIntoDB
 };
