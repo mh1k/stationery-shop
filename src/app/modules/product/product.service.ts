@@ -9,7 +9,15 @@ const createProductIntoDB = async (productData: IProduct) => {
 
 // this function getting all products from database by query search
 const getAllProductFromDB = async (querySearch: string) => {
-  const query = querySearch ? { category: querySearch } : {};
+  const query = querySearch
+    ? {
+        $or: [
+          { name: { $regex: querySearch, $options: 'i' } },
+          { brand: { $regex: querySearch, $options: 'i' } },
+          { category: { $regex: querySearch, $options: 'i' } },
+        ],
+      }
+    : {};
   const result = await ProductModel.find(query);
   return result;
 };
