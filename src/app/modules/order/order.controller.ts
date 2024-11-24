@@ -44,7 +44,7 @@ const getAllOrder = async (req: Request, res: Response) => {
     const result = await OrderService.getAllOrderFromDB();
     res.status(200).json({
       success: true,
-      message: 'Products retrieved successfully',
+      message: 'Orders retrieved successfully',
       data: result,
     });
   } catch (error) {
