@@ -127,7 +127,7 @@ in **`package.json`** file
 | method      | endpoint                               | deatails    |
 |-------------|----------------------------------------|-------------|
 | POST        | **`/api/products/create-product`**                    | create a product |
-| GET         | **`/api/products?serachTerm=Writing`** | get all product by category query or without query |
+| GET         | **`/api/products?serachTerm=(name/brand/category)`** | get all product by query or without query |
 | GET         | **`/api/products/productID`**          | get single product by product id |
 | PUT         | **`/api/products/productID`**          | update the product by product id |
 | DELETE      | **`/api/products/productID`** | delete the product by product id |
