@@ -20,8 +20,10 @@ const productSchema = new Schema<IProduct>(
       required: [true, 'Product price is required. Please specify the price.'],
       min: [0, 'Price must be a positive number.'],
       validate: {
-        validator: (value) => typeof value === 'number',
-        message: '{VALUE} is invalid value for price. Price must be a number.',
+        validator: function (value) {
+          return value >= 0; // for ensuring the price is not negative.
+        },
+        message: 'Price must be a positive number ',
       },
     },
     category: {
@@ -55,11 +57,11 @@ const productSchema = new Schema<IProduct>(
         true,
         'Product quantity is required. Specify the stock amount.',
       ],
-      min: [0, 'Quantity must be a positive number.'],
       validate: {
-        validator: (value) => typeof value === 'number',
-        message:
-          '{VALUE} is invalid value for quantity. Quantity must be a number.',
+        validator: function (value) {
+          return value > 0; // for ensuring the quantity is a positive number.
+        },
+        message: 'quantity must be a positive number ',
       },
     },
     inStock: {
@@ -79,8 +81,6 @@ const productSchema = new Schema<IProduct>(
     timestamps: true, //  createdAt date and updatedAt date
   },
 );
-
-
 
 // product model
 export const ProductModel = model<IProduct>('product', productSchema);
