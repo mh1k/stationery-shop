@@ -4,7 +4,7 @@ import { ProductController } from './product.controller';
 const router = express.Router();
 
 // to create product route
-router.post('/create-product', ProductController.createProduct);
+router.post('/', ProductController.createProduct);
 
 // to get tha all product including category query route
 router.get('/', ProductController.getAllProduct);
