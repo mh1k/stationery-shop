@@ -136,7 +136,7 @@ in **`package.json`** file
 
 | method      | endpoint                               | deatails    |
 |-------------|----------------------------------------|-------------|
-| POST        | **`/api/orders/create-order`**                    | create a order/ placed order |
+| POST        | **`/api/orders`**                    | create a order/ placed order |
 | GET         | **`/api/orders`** | get all orders |
 | DELETE         | **`/api/orders/:orderID`** | delete the product by order Id |
 | GET         | **`/api/products/revenue`**          | calculation the orders revenue |
