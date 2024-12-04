@@ -3,10 +3,10 @@ import { ProductController } from './product.controller';
 
 const router = express.Router();
 
-// to create product route
+// to create product route  
 router.post('/', ProductController.createProduct);
 
-// to get tha all product including category query route
+// to get tha all products including category query route
 router.get('/', ProductController.getAllProduct);
 
 // to get single product route
